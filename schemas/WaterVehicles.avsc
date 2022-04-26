@@ -1,0 +1,72 @@
+{
+	"type": "record",
+	"name": "WaterVehicleType",
+	"namespace": "com.aresibo.avro.WaterVehicle",
+	"doc": "Estimate state to water Vehicles",
+	"fields": [
+		{
+			"name": "name_vehicle",
+			"type": "string",
+			"doc": "Name of vehicle",
+			"unit": "none"
+		},
+		{
+			"name": "id_vehicle",
+			"type": "int",
+			"doc": "Id of vehicle",
+			"unit": "none"
+		},
+		{
+			"name": "timestamp",
+			"type": "long"
+		},
+		{
+			"name": "callsign",
+			"type": "string",
+			"doc": "Callsign of ship",
+			"unit": "none"
+		},
+		{
+			"name": "destination",
+			"type": "string",
+			"doc": "Destination of ship",
+			"unit": "none"
+		},
+		{
+			"name": "ship_type",
+			"type": "string",
+			"doc": "type of ship",
+			"unit": "none"
+		},
+		{
+			"name": "lat",
+			"type": "double",
+			"doc": "WGS-84 Latitude",
+			"unit": "rad"
+		},
+		{
+			"name": "lon",
+			"type": "double",
+			"doc": "WGS-84 Longitude",
+			"unit": "rad"
+		},
+		{
+			"name": "height",
+			"type": "double",
+			"doc": "Height above the WGS-84 ellipsoid",
+			"unit": "rad"
+		},
+		{
+			"name": "depth",
+			"type": "float",
+			"doc": "Depth, in meters. To be used by underwater vehicles. Negative values denote invalid estimates.",
+			"unit": "m"
+		},
+		{
+			"name": "altitude",
+			"type": "float",
+			"doc": "Altitude, in meters. Negative values denote invalid estimates",
+			"unit": "m"
+		}
+	]
+}

@@ -1,0 +1,95 @@
+{
+  "type": "record",
+  "name": "FusionAlert",
+  "namespace": "com.aresibo.avro.alert.fusion",
+  "fields": [{
+      "name": "alert_id",
+      "type": "int"
+    }, {
+      "name": "alert_end_time",
+      "type": "long"
+    }, {
+      "name": "alert_start_time",
+      "type": "long"
+    }, {
+      "name": "alert_text",
+      "type": "string"
+    }, {
+      "name": "alert_title",
+      "type": "string"
+    },{
+      "name": "timestamp",
+      "type": "long"
+    }, {
+      "name": "tracked_entity_id",
+      "type": "int"
+    }, {
+      "name": "mission_id",
+      "type": "int"
+    }, {
+      "name": "alert_level",
+      "type": {
+        "type": "enum",
+        "name": "Level",
+        "namespace": "com.aresibo.avro.alert.common",
+        "symbols": ["LOW", "MEDIUM", "HIGH"]
+      }
+    }, {
+      "name": "alert_status",
+      "type": {
+        "namespace": "com.aresibo.avro.alert.common",
+        "type": "enum",
+        "name": "Status",
+        "symbols": ["ALERT_ACTIVE", "ALERT_INACTIVE"]
+      }
+    },
+    {
+                "name": "location",
+                "type": {
+                    "type": "record",
+                    "name": "Location",
+                    "namespace": "com.aresibo.avro.alert.common",
+                    "fields": [
+                        {
+                            "name": "type",
+                            "type": "string",
+                            "default": "Point"
+                        },
+                        {
+                            "name": "coordinates",
+                            "type": [
+                                {
+                                    "type": "array",
+                                    "items": [
+                                        {
+                                            "type": "record",
+                                            "name": "Point",
+                                            "fields": [
+                                                {
+                                                    "name": "latitude",
+                                                    "type": "double",
+                                                    "default": 0.0
+                                                },
+                                                {
+                                                    "name": "longitude",
+                                                    "type": "double",
+                                                    "default": 0.0
+                                                }
+                                            ]
+                                        },
+                                        "null"
+                                    ]
+                                },
+                                "null"
+                            ]
+                        },
+                        {
+                            "name": "radius",
+                            "type": "float",
+                            "default": 0.0
+                        }
+                    ]
+                }
+            }
+  ]
+}

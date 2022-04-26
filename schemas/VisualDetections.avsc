@@ -1,0 +1,120 @@
+{
+  "name": "VisualDetections",
+  "type": "record",
+  "namespace": "com.aresibo.avro.visualdetections",
+  "fields": [
+    {
+      "name": "vehicle_id",
+      "type": "int"
+    },
+    {
+      "name": "source",
+      "type": "string"
+    },
+    {
+      "name": "width",
+      "type": "int"
+    },
+    {
+      "name": "height",
+      "type": "int"
+    },
+    {
+      "name": "version",
+      "type": "string"
+    },
+    {
+      "name": "fps",
+      "type": "int"
+    },
+    {
+      "name": "mission_id",
+      "type": "int"
+    },
+    {
+      "name": "sequence",
+      "type": {
+        "type": "array",
+        "items": {
+          "name": "sequence_record",
+          "type": "record",
+          "fields": [
+            {
+              "name": "frame_id",
+              "type": "int"
+            },
+            {
+              "name": "record_id",
+              "type": [
+                "string",
+                "int",
+                "null"
+              ]
+            },
+            {
+              "name": "timestamp",
+              "type": "long"
+            },
+            {
+              "name": "localization",
+              "type": {
+                "type": "array",
+                "items": {
+                  "name": "localization_record",
+                  "type": "record",
+                  "fields": [
+                    {
+                      "name": "latitude",
+                      "type": "double"
+                    },
+                    {
+                      "name": "longitude",
+                      "type": "double"
+                    },
+                    {
+                      "name": "class",
+                      "type": "string"
+                    },
+                    {
+                      "name": "object_id",
+                      "type": "int"
+                    },
+                    {
+                      "name": "confidence",
+                      "type": "double"
+                    },
+                    {
+                      "name": "bbox",
+                      "type": {
+                        "name": "bbox",
+                        "type": "record",
+                        "fields": [
+                          {
+                            "name": "x_min",
+                            "type": "int"
+                          },
+                          {
+                            "name": "y_min",
+                            "type": "int"
+                          },
+                          {
+                            "name": "x_max",
+                            "type": "int"
+                          },
+                          {
+                            "name": "y_max",
+                            "type": "int"
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "type": "record",
+  "name": "SampleAvro",
+  "namespace": "gr.uoa.di.pcomp.sampleAvro",
+  "doc": "A sample Avro file for testing",
+  "fields": [
+          {
+            "name": "time",
+            "type": "long",
+            "doc": "Time elapsed since the Unix epoch",
+            "unit": "ms"
+          },
+          {
+            "name": "value",
+            "type": "double",
+            "doc": "Sample value"
+          }
+  ]
+}

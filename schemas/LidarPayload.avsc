@@ -1,0 +1,105 @@
+{
+    "type": "record",
+    "name": "LidarPayload",
+    "namespace": "com.aresibo.avro.lidarPayload",
+    "fields": [
+        {
+            "name": "sender_id",
+            "type": "string"
+        },
+        {
+            "name": "message_type",
+            "type": "string"
+        },
+        {
+            "name": "timestamp",
+            "type": "long"
+        },
+        {
+            "name": "data_object",
+            "type": {
+                "type": "record",
+                "name": "DataObject",
+                "fields": [
+                    {
+                        "name": "vehicle_id",
+                        "type": "int"
+                    },
+                    {
+                        "name": "payload_id",
+                        "type": "int"
+                    },
+                    {
+                        "name": "position",
+                        "type": {
+                            "type": "record",
+                            "name": "PositionType",
+                            "namespace": "com.aresibo.avro.lidarPayload.positionType",
+                            "fields": [
+                                {
+                                    "name": "latitude",
+                                    "type": "double"
+                                },
+                                {
+                                    "name": "longitude",
+                                    "type": "double"
+                                },
+                                {
+                                    "name": "altitude",
+                                    "type": "float"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "name": "orientation",
+                        "type": {
+                            "type": "record",
+                            "name": "AttitudeType",
+                            "namespace": "com.aresibo.avro.lidarPayload.attitudeType",
+                            "fields": [
+                                {
+                                    "name": "roll",
+                                    "type": "float"
+                                },
+                                {
+                                    "name": "pitch",
+                                    "type": "float"
+                                },
+                                {
+                                    "name": "yaw",
+                                    "type": "float"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "name": "data",
+                        "type": {
+                            "type": "array",
+                            "items": {
+                                "type": "record",
+                                "name": "PointType",
+                                "namespace": "com.aresibo.avro.lidarPayload.pointType",
+                                "fields": [
+                                    {
+                                        "name": "x",
+                                        "type": "float"
+                                    },
+                                    {
+                                        "name": "y",
+                                        "type": "float"
+                                    },
+                                    {
+                                        "name": "z",
+                                        "type": "float"
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                ]
+            }
+        }
+    ]
+}
