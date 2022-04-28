@@ -4,10 +4,13 @@ from confluent_kafka.avro import AvroProducer
 from confluent_kafka import avro
 import avro.schema
 
+from settings import BOOTSTRAP_SERVER, SCHEMA_REGISTRY
+
 value_schema = avro.schema.Parse(open("./schemas/FusionAlert.avsc","rb").read())
+
 avro_producer = AvroProducer({
-    'bootstrap.servers': "88.28.218.13:9097",
-    'schema.registry.url': "http://88.28.218.13:8081"},
+    'bootstrap.servers': BOOTSTRAP_SERVER,
+    'schema.registry.url': SCHEMA_REGISTRY},
     default_value_schema=value_schema)
 
 

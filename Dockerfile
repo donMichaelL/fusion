@@ -1,9 +1,12 @@
-FROM python:3.8
+FROM python:3.8-slim-buster
 
 LABEL maintener="Michael Loukeris"
 
 ENV PYTHONUNBUFFERED 1
 ENV PYTHONDONTWRITEBYTECODE 1
+
+
+RUN apt-get update && apt-get install nano
 
 RUN mkdir /code
 

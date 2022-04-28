@@ -1,16 +1,18 @@
-import redis, json
+
 from confluent_kafka import KafkaError
 from confluent_kafka.avro.serializer import SerializerError
 from random import random
 
+from settings import BOOTSTRAP_SERVER, SCHEMA_REGISTRY
 from models import LidarMsg, VisualMsg, RiskMsg
 from utils import StringKeyAvroConsumer
 
 
+
 c = StringKeyAvroConsumer({
-    'bootstrap.servers': "88.28.218.13:9097",
+    'bootstrap.servers': BOOTSTRAP_SERVER,
     'group.id': str(random()),
-    'schema.registry.url': "http://88.28.218.13:8081"
+    'schema.registry.url': SCHEMA_REGISTRY
 })
 
 c.subscribe(['VisualDetections', 'WaterVehicles', 'RiskAlert'])
